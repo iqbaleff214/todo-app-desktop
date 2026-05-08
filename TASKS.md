@@ -9,7 +9,7 @@ Tasks are ordered by dependency. Complete phases in sequence; tasks within a pha
 
 ## Phase 0 — Project Bootstrap
 
-- [ ] **T-001 · Initialize Wails project**
+- [x] **T-001 · Initialize Wails project**
 
   **What:** Scaffold the Wails v2 project with Go module and Vue 3 + TypeScript template.
 
