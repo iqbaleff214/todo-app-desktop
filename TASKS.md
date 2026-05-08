@@ -145,7 +145,7 @@ Tasks are ordered by dependency. Complete phases in sequence; tasks within a pha
 
 ---
 
-- [ ] **T-103 · Implement database initialization**
+- [x] **T-103 · Implement database initialization**
 
   **What:** Implement `internal/repository/db.go` that opens the SQLite file, runs migrations, and returns a `*sql.DB`.
 
