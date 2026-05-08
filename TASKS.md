@@ -165,7 +165,7 @@ Tasks are ordered by dependency. Complete phases in sequence; tasks within a pha
 
 ---
 
-- [ ] **T-104 · Implement TaskRepository**
+- [x] **T-104 · Implement TaskRepository**
 
   **What:** Implement `internal/repository/task_repo.go` with full CRUD and date-query methods.
 
