@@ -68,7 +68,7 @@ Tasks are ordered by dependency. Complete phases in sequence; tasks within a pha
 
 ---
 
-- [ ] **T-004 · Add frontend dependencies**
+- [x] **T-004 · Add frontend dependencies**
 
   **What:** Install frontend packages via npm inside `frontend/`.
 
