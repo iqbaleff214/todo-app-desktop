@@ -49,7 +49,7 @@ Tasks are ordered by dependency. Complete phases in sequence; tasks within a pha
 
 ---
 
-- [ ] **T-003 · Add Go dependencies**
+- [x] **T-003 · Add Go dependencies**
 
   **What:** Add all required Go packages to `go.mod` / `go.sum`.
 
