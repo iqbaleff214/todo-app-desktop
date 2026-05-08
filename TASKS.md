@@ -192,7 +192,7 @@ Tasks are ordered by dependency. Complete phases in sequence; tasks within a pha
 
 ---
 
-- [ ] **T-105 · Implement SettingsRepository**
+- [x] **T-105 · Implement SettingsRepository**
 
   **What:** Implement `internal/repository/settings_repo.go` that reads and writes `settings.json`.
 
