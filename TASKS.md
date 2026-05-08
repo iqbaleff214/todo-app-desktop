@@ -89,7 +89,7 @@ Tasks are ordered by dependency. Complete phases in sequence; tasks within a pha
 
 ## Phase 1 — Data Layer (Go)
 
-- [ ] **T-101 · Define Task model**
+- [x] **T-101 · Define Task model**
 
   **What:** Implement `internal/models/task.go` with the `Task` struct from PRD §8.1.
 
