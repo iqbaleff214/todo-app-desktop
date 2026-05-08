@@ -214,7 +214,7 @@ Tasks are ordered by dependency. Complete phases in sequence; tasks within a pha
 
 ---
 
-- [ ] **T-106 · Implement startup backup**
+- [x] **T-106 · Implement startup backup**
 
   **What:** Implement `internal/repository/backup.go` with a `MaybeBackup(dataDir string) error` function.
 
