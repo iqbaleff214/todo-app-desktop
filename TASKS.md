@@ -25,7 +25,7 @@ Tasks are ordered by dependency. Complete phases in sequence; tasks within a pha
 
 ---
 
-- [ ] **T-002 · Set up folder structure**
+- [x] **T-002 · Set up folder structure**
 
   **What:** Create all directories and empty placeholder files matching PRD §10.
 
