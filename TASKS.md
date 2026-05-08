@@ -115,7 +115,7 @@ Tasks are ordered by dependency. Complete phases in sequence; tasks within a pha
 
 ---
 
-- [ ] **T-102 · Define Settings model**
+- [x] **T-102 · Define Settings model**
 
   **What:** Implement `internal/models/settings.go` with the `Settings` struct from PRD §8.2 plus a `Default()` constructor.
 
