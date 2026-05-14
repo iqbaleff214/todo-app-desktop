@@ -10,6 +10,7 @@ import (
 
 type TaskRepository interface {
 	GetByDate(date string) ([]models.Task, error)
+	GetByID(id string) (models.Task, error)
 	GetDatesWithTasks() ([]string, error)
 	Create(task models.Task) error
 	Update(task models.Task) error
@@ -54,6 +55,24 @@ func (r *sqliteTaskRepo) GetByDate(date string) ([]models.Task, error) {
 		return nil, fmt.Errorf("task_repo.GetByDate: rows: %w", err)
 	}
 	return tasks, nil
+}
+
+func (r *sqliteTaskRepo) GetByID(id string) (models.Task, error) {
+	var t models.Task
+	var done int
+	var createdAt, updatedAt string
+	err := r.db.QueryRow(`
+		SELECT id, date, text, done, position, created_at, updated_at
+		FROM tasks
+		WHERE id = ?
+	`, id).Scan(&t.ID, &t.Date, &t.Text, &done, &t.Position, &createdAt, &updatedAt)
+	if err != nil {
+		return models.Task{}, fmt.Errorf("task_repo.GetByID: %w", err)
+	}
+	t.Done = done == 1
+	t.CreatedAt, _ = time.Parse(time.RFC3339, createdAt)
+	t.UpdatedAt, _ = time.Parse(time.RFC3339, updatedAt)
+	return t, nil
 }
 
 func (r *sqliteTaskRepo) GetDatesWithTasks() ([]string, error) {

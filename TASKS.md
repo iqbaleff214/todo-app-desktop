@@ -236,7 +236,7 @@ Tasks are ordered by dependency. Complete phases in sequence; tasks within a pha
 
 ## Phase 2 — Service Layer (Go)
 
-- [ ] **T-201 · Implement TaskService**
+- [x] **T-201 · Implement TaskService**
 
   **What:** Implement `internal/service/task_service.go` as the business logic layer wrapping `TaskRepository`.
 
@@ -262,7 +262,7 @@ Tasks are ordered by dependency. Complete phases in sequence; tasks within a pha
 
 ---
 
-- [ ] **T-202 · Implement SettingsService**
+- [x] **T-202 · Implement SettingsService**
 
   **What:** Implement `internal/service/settings_service.go` wrapping `SettingsRepository`.
 
@@ -283,7 +283,7 @@ Tasks are ordered by dependency. Complete phases in sequence; tasks within a pha
 
 ---
 
-- [ ] **T-203 · Wire services into Wails App struct**
+- [x] **T-203 · Wire services into Wails App struct**
 
   **What:** Update `app.go` to initialize all services in `startup()` and expose them.
 
