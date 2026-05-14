@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	"log"
+	"os"
 
 	"github.com/iqbaleff214/todo-app/internal/models"
 	"github.com/iqbaleff214/todo-app/internal/repository"
@@ -47,10 +48,14 @@ func (a *App) startup(ctx context.Context) {
 
 	a.taskService = service.NewTaskService(taskRepo)
 	a.settingsService = service.NewSettingsService(settingsRepo)
-	a.windowManager = window.NewManager(ctx)
+	a.windowManager = window.NewManager(ctx, a.settingsService)
+
+	// Apply widget mode and tray after services are wired.
+	a.windowManager.SetWidgetMode()
+	a.windowManager.InitTray()
 }
 
-// Task methods — delegates to TaskService.
+// --- Task delegates ---
 
 func (a *App) GetTasksForDate(date string) ([]models.Task, error) {
 	return a.taskService.GetTasksForDate(date)
@@ -84,7 +89,7 @@ func (a *App) ReorderTasks(ids []string) error {
 	return a.taskService.ReorderTasks(ids)
 }
 
-// Settings methods — delegates to SettingsService.
+// --- Settings delegates ---
 
 func (a *App) GetSettings() (models.Settings, error) {
 	return a.settingsService.GetSettings()
@@ -96,4 +101,32 @@ func (a *App) SaveSettings(settings models.Settings) error {
 
 func (a *App) ResetWindowPosition() error {
 	return a.settingsService.ResetWindowPosition()
+}
+
+// --- Window delegates ---
+
+func (a *App) ToggleExpanded() {
+	a.windowManager.ToggleExpanded()
+}
+
+func (a *App) SaveWindowPosition() {
+	a.windowManager.SavePosition()
+}
+
+// --- Autostart delegates ---
+
+func (a *App) EnableAutostart() error {
+	execPath, err := os.Executable()
+	if err != nil {
+		return err
+	}
+	return window.EnableAutostart("todo-app", execPath)
+}
+
+func (a *App) DisableAutostart() error {
+	return window.DisableAutostart("todo-app")
+}
+
+func (a *App) IsAutostartEnabled() (bool, error) {
+	return window.IsAutostartEnabled("todo-app")
 }

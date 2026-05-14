@@ -12,19 +12,33 @@ import (
 var assets embed.FS
 
 func main() {
-	// Create an instance of the app structure
 	app := NewApp()
 
-	// Create application with options
 	err := wails.Run(&options.App{
-		Title:  "todo-app",
-		Width:  1024,
-		Height: 768,
+		Title:     "todo-app",
+		Width:     280,
+		Height:    420,
+		MinWidth:  280,
+		MinHeight: 420,
+		MaxWidth:  280,
+		MaxHeight: 420,
+
+		Frameless:   true,
+		AlwaysOnTop: true,
+
+		// Transparent background lets the frontend control rounded corners
+		// and widget opacity via CSS.
+		BackgroundColour: &options.RGBA{R: 0, G: 0, B: 0, A: 0},
+
+		// Hide until startup() has positioned the window correctly.
+		StartHidden: true,
+
 		AssetServer: &assetserver.Options{
 			Assets: assets,
 		},
-		BackgroundColour: &options.RGBA{R: 27, G: 38, B: 54, A: 1},
-		OnStartup:        app.startup,
+
+		OnStartup: app.startup,
+
 		Bind: []interface{}{
 			app,
 		},

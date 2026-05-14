@@ -314,7 +314,7 @@ Tasks are ordered by dependency. Complete phases in sequence; tasks within a pha
 
 ## Phase 3 — Window Manager (Go)
 
-- [ ] **T-301 · Implement WindowManager — widget mode**
+- [x] **T-301 · Implement WindowManager — widget mode**
 
   **What:** Implement `internal/window/manager.go` to configure and control the Wails window in widget (floating) mode.
 
@@ -342,7 +342,7 @@ Tasks are ordered by dependency. Complete phases in sequence; tasks within a pha
 
 ---
 
-- [ ] **T-302 · Implement system tray**
+- [x] **T-302 · Implement system tray**
 
   **What:** Add a system tray icon with a context menu.
 
@@ -364,7 +364,7 @@ Tasks are ordered by dependency. Complete phases in sequence; tasks within a pha
 
 ---
 
-- [ ] **T-303 · Implement launch on login**
+- [x] **T-303 · Implement launch on login**
 
   **What:** Implement OS-level autostart registration inside `internal/window/autostart.go`.
 

@@ -10,6 +10,14 @@ export function DeleteTask(arg1) {
   return window['go']['main']['App']['DeleteTask'](arg1);
 }
 
+export function DisableAutostart() {
+  return window['go']['main']['App']['DisableAutostart']();
+}
+
+export function EnableAutostart() {
+  return window['go']['main']['App']['EnableAutostart']();
+}
+
 export function GetDatesWithTasks() {
   return window['go']['main']['App']['GetDatesWithTasks']();
 }
@@ -26,6 +34,10 @@ export function GetTodayTasks() {
   return window['go']['main']['App']['GetTodayTasks']();
 }
 
+export function IsAutostartEnabled() {
+  return window['go']['main']['App']['IsAutostartEnabled']();
+}
+
 export function ReorderTasks(arg1) {
   return window['go']['main']['App']['ReorderTasks'](arg1);
 }
@@ -38,8 +50,16 @@ export function SaveSettings(arg1) {
   return window['go']['main']['App']['SaveSettings'](arg1);
 }
 
+export function SaveWindowPosition() {
+  return window['go']['main']['App']['SaveWindowPosition']();
+}
+
 export function ToggleDone(arg1) {
   return window['go']['main']['App']['ToggleDone'](arg1);
+}
+
+export function ToggleExpanded() {
+  return window['go']['main']['App']['ToggleExpanded']();
 }
 
 export function UpdateText(arg1, arg2) {

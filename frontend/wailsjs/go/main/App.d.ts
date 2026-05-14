@@ -6,6 +6,10 @@ export function AddTask(arg1:string,arg2:string):Promise<models.Task>;
 
 export function DeleteTask(arg1:string):Promise<void>;
 
+export function DisableAutostart():Promise<void>;
+
+export function EnableAutostart():Promise<void>;
+
 export function GetDatesWithTasks():Promise<Array<string>>;
 
 export function GetSettings():Promise<models.Settings>;
@@ -14,12 +18,18 @@ export function GetTasksForDate(arg1:string):Promise<Array<models.Task>>;
 
 export function GetTodayTasks():Promise<Array<models.Task>>;
 
+export function IsAutostartEnabled():Promise<boolean>;
+
 export function ReorderTasks(arg1:Array<string>):Promise<void>;
 
 export function ResetWindowPosition():Promise<void>;
 
 export function SaveSettings(arg1:models.Settings):Promise<void>;
 
+export function SaveWindowPosition():Promise<void>;
+
 export function ToggleDone(arg1:string):Promise<models.Task>;
+
+export function ToggleExpanded():Promise<void>;
 
 export function UpdateText(arg1:string,arg2:string):Promise<models.Task>;
