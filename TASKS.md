@@ -393,7 +393,7 @@ Tasks are ordered by dependency. Complete phases in sequence; tasks within a pha
 
 ## Phase 4 — Frontend Foundation
 
-- [ ] **T-401 · Configure Vite and TypeScript**
+- [x] **T-401 · Configure Vite and TypeScript**
 
   **What:** Update `vite.config.ts` and `tsconfig.json` for the project.
 
@@ -406,7 +406,7 @@ Tasks are ordered by dependency. Complete phases in sequence; tasks within a pha
 
 ---
 
-- [ ] **T-402 · Set up theme system**
+- [x] **T-402 · Set up theme system**
 
   **What:** Implement `frontend/src/styles/theme.css` and `base.css`.
 
@@ -437,7 +437,7 @@ Tasks are ordered by dependency. Complete phases in sequence; tasks within a pha
 
 ---
 
-- [ ] **T-403 · Implement Pinia tasks store**
+- [x] **T-403 · Implement Pinia tasks store**
 
   **What:** Implement `frontend/src/stores/tasks.ts`.
 
@@ -482,7 +482,7 @@ Tasks are ordered by dependency. Complete phases in sequence; tasks within a pha
 
 ---
 
-- [ ] **T-404 · Implement Pinia settings store**
+- [x] **T-404 · Implement Pinia settings store**
 
   **What:** Implement `frontend/src/stores/settings.ts`.
 
@@ -505,7 +505,7 @@ Tasks are ordered by dependency. Complete phases in sequence; tasks within a pha
 
 ---
 
-- [ ] **T-405 · Implement useKeyboard composable**
+- [x] **T-405 · Implement useKeyboard composable**
 
   **What:** Implement `frontend/src/composables/useKeyboard.ts` — a composable that registers global keyboard shortcuts.
 
@@ -543,7 +543,7 @@ Tasks are ordered by dependency. Complete phases in sequence; tasks within a pha
 
 ---
 
-- [ ] **T-406 · Implement useDate composable**
+- [x] **T-406 · Implement useDate composable**
 
   **What:** Implement `frontend/src/composables/useDate.ts` with date utilities used across components.
 

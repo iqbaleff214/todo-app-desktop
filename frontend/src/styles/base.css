@@ -1,0 +1,38 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue',
+    Arial, sans-serif;
+  font-size: 14px;
+  /* Desktop app — no text selection by default. */
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+body {
+  background: transparent;
+  color: var(--color-text-primary);
+}
+
+#app {
+  width: 100%;
+  height: 100vh;
+}
+
+/* Allow selection inside text inputs and content-editable elements. */
+input,
+textarea,
+[contenteditable] {
+  user-select: text;
+  -webkit-user-select: text;
+}
