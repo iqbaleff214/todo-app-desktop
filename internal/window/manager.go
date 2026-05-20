@@ -47,6 +47,8 @@ func (m *Manager) SetWidgetMode() {
 	runtime.WindowSetMaxSize(m.ctx, widgetW, widgetH)
 	runtime.WindowSetSize(m.ctx, widgetW, widgetH)
 	m.restorePosition()
+	runtime.WindowShow(m.ctx)
+	runtime.EventsEmit(m.ctx, "window:mode", false)
 }
 
 // SetExpandedMode switches to the full expanded window.
@@ -60,6 +62,8 @@ func (m *Manager) SetExpandedMode() {
 	runtime.WindowSetMaxSize(m.ctx, 0, 0)
 	runtime.WindowSetMinSize(m.ctx, expandedMinW, expandedMinH)
 	runtime.WindowSetSize(m.ctx, 720, 540)
+	runtime.WindowShow(m.ctx)
+	runtime.EventsEmit(m.ctx, "window:mode", true)
 }
 
 // ToggleExpanded flips between widget and expanded mode.

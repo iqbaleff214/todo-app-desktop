@@ -12,6 +12,7 @@ export const useTasksStore = defineStore('tasks', () => {
   const tasks = ref<models.Task[]>([])
   const selectedDate = ref<string>(today())
   const datesWithTasks = ref<string[]>([])
+  const taskCountsByDate = ref<Record<string, number>>({})
   const loading = ref(false)
   const error = ref<string | null>(null)
 
@@ -64,16 +65,25 @@ export const useTasksStore = defineStore('tasks', () => {
     }
   }
 
+  async function loadTaskCountsByDate(): Promise<void> {
+    try {
+      taskCountsByDate.value = await App.GetTaskCountsByDate()
+    } catch {
+      // counts are non-critical; sidebar will show without them
+    }
+  }
+
   async function addTask(text: string): Promise<void> {
     loading.value = true
     error.value = null
     try {
       const newTask = await App.AddTask(selectedDate.value, text)
       tasks.value.push(newTask)
-      // Keep datesWithTasks up to date.
-      if (!datesWithTasks.value.includes(selectedDate.value)) {
-        datesWithTasks.value = [selectedDate.value, ...datesWithTasks.value]
+      const date = selectedDate.value
+      if (!datesWithTasks.value.includes(date)) {
+        datesWithTasks.value = [date, ...datesWithTasks.value]
       }
+      taskCountsByDate.value = { ...taskCountsByDate.value, [date]: (taskCountsByDate.value[date] ?? 0) + 1 }
     } catch (e) {
       const msg = String(e)
       error.value = msg
@@ -109,8 +119,14 @@ export const useTasksStore = defineStore('tasks', () => {
 
   async function deleteTask(id: string): Promise<void> {
     try {
+      const date = tasks.value.find((t) => t.ID === id)?.Date ?? selectedDate.value
       await App.DeleteTask(id)
       tasks.value = tasks.value.filter((t) => t.ID !== id)
+      const newCount = Math.max(0, (taskCountsByDate.value[date] ?? 1) - 1)
+      taskCountsByDate.value = { ...taskCountsByDate.value, [date]: newCount }
+      if (newCount === 0) {
+        datesWithTasks.value = datesWithTasks.value.filter((d) => d !== date)
+      }
     } catch (e) {
       const msg = String(e)
       error.value = msg
@@ -137,6 +153,7 @@ export const useTasksStore = defineStore('tasks', () => {
     tasks,
     selectedDate,
     datesWithTasks,
+    taskCountsByDate,
     loading,
     error,
     // Getters
@@ -149,6 +166,7 @@ export const useTasksStore = defineStore('tasks', () => {
     loadDate,
     loadToday,
     loadDatesWithTasks,
+    loadTaskCountsByDate,
     addTask,
     toggleDone,
     updateText,

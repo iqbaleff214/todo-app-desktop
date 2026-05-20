@@ -12,6 +12,7 @@ type TaskRepository interface {
 	GetByDate(date string) ([]models.Task, error)
 	GetByID(id string) (models.Task, error)
 	GetDatesWithTasks() ([]string, error)
+	GetTaskCountsByDate() (map[string]int, error)
 	Create(task models.Task) error
 	Update(task models.Task) error
 	Delete(id string) error
@@ -73,6 +74,28 @@ func (r *sqliteTaskRepo) GetByID(id string) (models.Task, error) {
 	t.CreatedAt, _ = time.Parse(time.RFC3339, createdAt)
 	t.UpdatedAt, _ = time.Parse(time.RFC3339, updatedAt)
 	return t, nil
+}
+
+func (r *sqliteTaskRepo) GetTaskCountsByDate() (map[string]int, error) {
+	rows, err := r.db.Query(`SELECT date, COUNT(*) FROM tasks GROUP BY date`)
+	if err != nil {
+		return nil, fmt.Errorf("task_repo.GetTaskCountsByDate: %w", err)
+	}
+	defer rows.Close()
+
+	counts := map[string]int{}
+	for rows.Next() {
+		var date string
+		var count int
+		if err := rows.Scan(&date, &count); err != nil {
+			return nil, fmt.Errorf("task_repo.GetTaskCountsByDate: scan: %w", err)
+		}
+		counts[date] = count
+	}
+	if err := rows.Err(); err != nil {
+		return nil, fmt.Errorf("task_repo.GetTaskCountsByDate: rows: %w", err)
+	}
+	return counts, nil
 }
 
 func (r *sqliteTaskRepo) GetDatesWithTasks() ([]string, error) {

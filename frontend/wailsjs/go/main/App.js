@@ -26,6 +26,10 @@ export function GetSettings() {
   return window['go']['main']['App']['GetSettings']();
 }
 
+export function GetTaskCountsByDate() {
+  return window['go']['main']['App']['GetTaskCountsByDate']();
+}
+
 export function GetTasksForDate(arg1) {
   return window['go']['main']['App']['GetTasksForDate'](arg1);
 }
@@ -36,6 +40,10 @@ export function GetTodayTasks() {
 
 export function IsAutostartEnabled() {
   return window['go']['main']['App']['IsAutostartEnabled']();
+}
+
+export function IsExpanded() {
+  return window['go']['main']['App']['IsExpanded']();
 }
 
 export function ReorderTasks(arg1) {

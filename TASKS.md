@@ -704,7 +704,7 @@ Tasks are ordered by dependency. Complete phases in sequence; tasks within a pha
 
 ## Phase 6 — Expanded Window UI
 
-- [ ] **T-601 · Build expanded window layout**
+- [x] **T-601 · Build expanded window layout**
 
   **What:** Implement the two-column expanded layout in `App.vue` (or a dedicated `ExpandedView.vue`).
 
@@ -726,7 +726,7 @@ Tasks are ordered by dependency. Complete phases in sequence; tasks within a pha
 
 ---
 
-- [ ] **T-602 · Build DateSidebar.vue**
+- [x] **T-602 · Build DateSidebar.vue**
 
   **What:** Implement `frontend/src/components/DateSidebar.vue`.
 
@@ -749,7 +749,7 @@ Tasks are ordered by dependency. Complete phases in sequence; tasks within a pha
 
 ---
 
-- [ ] **T-603 · Wire expanded view task editing**
+- [x] **T-603 · Wire expanded view task editing**
 
   **What:** Ensure full task CRUD works in expanded window (not just widget).
 

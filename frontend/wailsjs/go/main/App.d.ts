@@ -14,11 +14,15 @@ export function GetDatesWithTasks():Promise<Array<string>>;
 
 export function GetSettings():Promise<models.Settings>;
 
+export function GetTaskCountsByDate():Promise<Record<string, number>>;
+
 export function GetTasksForDate(arg1:string):Promise<Array<models.Task>>;
 
 export function GetTodayTasks():Promise<Array<models.Task>>;
 
 export function IsAutostartEnabled():Promise<boolean>;
+
+export function IsExpanded():Promise<boolean>;
 
 export function ReorderTasks(arg1:Array<string>):Promise<void>;
 

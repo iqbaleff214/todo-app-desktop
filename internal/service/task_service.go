@@ -45,6 +45,14 @@ func (s *TaskService) GetDatesWithTasks() ([]string, error) {
 	return dates, nil
 }
 
+func (s *TaskService) GetTaskCountsByDate() (map[string]int, error) {
+	counts, err := s.repo.GetTaskCountsByDate()
+	if err != nil {
+		return nil, fmt.Errorf("task_service.GetTaskCountsByDate: %w", err)
+	}
+	return counts, nil
+}
+
 func (s *TaskService) AddTask(date, text string) (models.Task, error) {
 	text = strings.TrimSpace(text)
 	if text == "" {

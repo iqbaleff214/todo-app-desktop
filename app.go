@@ -103,7 +103,15 @@ func (a *App) ResetWindowPosition() error {
 	return a.settingsService.ResetWindowPosition()
 }
 
+func (a *App) GetTaskCountsByDate() (map[string]int, error) {
+	return a.taskService.GetTaskCountsByDate()
+}
+
 // --- Window delegates ---
+
+func (a *App) IsExpanded() bool {
+	return a.windowManager.IsExpanded()
+}
 
 func (a *App) ToggleExpanded() {
 	a.windowManager.ToggleExpanded()
