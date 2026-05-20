@@ -570,7 +570,7 @@ Tasks are ordered by dependency. Complete phases in sequence; tasks within a pha
 
 ## Phase 5 — Widget UI
 
-- [ ] **T-501 · Build Widget.vue — root floating panel**
+- [x] **T-501 · Build Widget.vue — root floating panel**
 
   **What:** Implement `frontend/src/components/Widget.vue` as the root component for the floating widget mode.
 
@@ -596,7 +596,7 @@ Tasks are ordered by dependency. Complete phases in sequence; tasks within a pha
 
 ---
 
-- [ ] **T-502 · Build TaskList.vue**
+- [x] **T-502 · Build TaskList.vue**
 
   **What:** Implement `frontend/src/components/TaskList.vue` — renders pending tasks then done tasks.
 
@@ -628,7 +628,7 @@ Tasks are ordered by dependency. Complete phases in sequence; tasks within a pha
 
 ---
 
-- [ ] **T-503 · Build TaskItem.vue**
+- [x] **T-503 · Build TaskItem.vue**
 
   **What:** Implement `frontend/src/components/TaskItem.vue` — single task row.
 
@@ -663,7 +663,7 @@ Tasks are ordered by dependency. Complete phases in sequence; tasks within a pha
 
 ---
 
-- [ ] **T-504 · Build TaskInput.vue**
+- [x] **T-504 · Build TaskInput.vue**
 
   **What:** Implement `frontend/src/components/TaskInput.vue` — the "add task" input field.
 
@@ -684,7 +684,7 @@ Tasks are ordered by dependency. Complete phases in sequence; tasks within a pha
 
 ---
 
-- [ ] **T-505 · Build count badge and empty state**
+- [x] **T-505 · Build count badge and empty state**
 
   **What:** Two small sub-components used inside `Widget.vue`.
 

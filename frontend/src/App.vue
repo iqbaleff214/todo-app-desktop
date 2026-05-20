@@ -1,12 +1,16 @@
 <script lang="ts" setup>
-import { onMounted } from 'vue'
+import { ref, onMounted } from 'vue'
 import { useSettingsStore } from '@/stores/settings'
 import { useTasksStore } from '@/stores/tasks'
 import { useKeyboard } from '@/composables/useKeyboard'
+import Widget from '@/components/Widget.vue'
 import * as App from '../wailsjs/go/main/App'
 
 const settingsStore = useSettingsStore()
 const tasksStore = useTasksStore()
+const widgetRef = ref<InstanceType<typeof Widget> | null>(null)
+
+const showSettings = ref(false)
 
 onMounted(async () => {
   await settingsStore.load()
@@ -15,23 +19,19 @@ onMounted(async () => {
 })
 
 useKeyboard({
+  onAddTask: () => widgetRef.value?.focusInput(),
   onToggleExpand: () => App.ToggleExpanded(),
+  onOpenSettings: () => { showSettings.value = true },
   onToday: () => tasksStore.loadToday(),
-  onPrevDate: () => {
-    // Phase 6: implemented in DateSidebar
-  },
-  onNextDate: () => {
-    // Phase 6: implemented in DateSidebar
-  },
-  onQuit: () => {
-    // Wails runtime handles Cmd+Q natively; this is a fallback.
-  },
+  onPrevDate: () => { /* Phase 6 */ },
+  onNextDate: () => { /* Phase 6 */ },
+  onQuit: () => { /* Wails handles Cmd+Q natively */ },
 })
 </script>
 
 <template>
   <div id="widget-root">
-    <!-- Phase 5: Widget.vue and expanded view rendered here -->
+    <Widget ref="widgetRef" @open-settings="showSettings = true" />
   </div>
 </template>
 
